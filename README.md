@@ -47,3 +47,31 @@ const Circle = styled(Box)`
 ..
 <Circle bgColor="tomato" />
 ```
+
+## 2.3 'As' and Attrs
+
+- convert styledComponent to other element by `as`
+
+```js
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
+`;
+..
+<Btn as="a" href="/">  {/* convert from button to anchor */}
+go home
+/Btn>
+```
+
+- give default attributes
+
+```js
+const Input = styled.input.attrs({ required: true, minLength: 2 })`
+  background-color: tomato;
+`;
+..
+<Input />
+<Input />
+```
