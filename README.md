@@ -122,3 +122,19 @@ const Box = styled.div`
   </Box>
 </Wrapper>
 ```
+
+## 2.5 Pseudo Selectors part Two
+
+- can use styled component name as selector => independant on html tag
+
+```js
+const Box = styled.div`
+  ${Emoji}:hover {
+    font-size: 98px;
+  }
+`;
+..
+<Box>
+  <Emoji>🤩</Emoji>
+</Box>
+```
