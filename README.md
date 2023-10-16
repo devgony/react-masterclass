@@ -23,3 +23,27 @@ const Text = styled.span`
     <Text>Hello</Text>
 </BoxOne>
 ```
+
+## 2.2 Adapting and Extending
+
+- Adapting
+
+```js
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
+  width: 100px;
+  height: 100px;
+`;
+..
+<Box bgColor="teal" />
+```
+
+- Extending
+
+```js
+const Circle = styled(Box)`
+  border-radius: 50px;
+`;
+..
+<Circle bgColor="tomato" />
+```
