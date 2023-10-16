@@ -138,3 +138,28 @@ const Box = styled.div`
   <Emoji>🤩</Emoji>
 </Box>
 ```
+
+## 2.7 Themes
+
+```js
+// index.js
+const darkTheme = {
+  textColor: "whitesmoke",
+  backgroundColor: "#111",
+};
+const lightTheme = {
+  textColor: "#111",
+  backgroundColor: "whitesmoke",
+};
+
+<ThemeProvider theme={darkTheme}>
+  <App />
+</ThemeProvider>;
+```
+
+```js
+// App.js
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+```
