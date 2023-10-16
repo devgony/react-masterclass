@@ -75,3 +75,50 @@ const Input = styled.input.attrs({ required: true, minLength: 2 })`
 <Input />
 <Input />
 ```
+
+## 2.4 Animations and Pseudo Selectors
+
+- Animations
+
+```js
+const rotationAnimation = keyframes`
+  0% {
+    transform:rotate(0deg);
+    border-radius:0px;
+  }
+  50% {
+    border-radius:100px;
+  }
+  100%{
+    transform:rotate(360deg);
+    border-radius:0px;
+  }
+`;
+..
+const Box = styled.div`
+  animation: ${rotationAnimation} 1s linear infinite;
+```
+
+- Pseudo selectors
+  - can use html tag inside of styled component to refer to specific child
+  - & means myself
+
+```js
+const Box = styled.div`
+  span {
+    font-size: 36px;
+    &:hover {
+      font-size: 48px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
+`;
+..
+<Wrapper>
+  <Box>
+    <span>🤩</span>
+  </Box>
+</Wrapper>
+```
