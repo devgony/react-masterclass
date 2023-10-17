@@ -242,3 +242,15 @@ function Circle({ bgColor }: CircleProps) {
 
 export default Circle;
 ```
+
+## 3.3 Optional Props
+
+```ts
+interface CircleProps {
+  bgColor: string;
+  borderColor?: string;
+  text?: string;
+}
+
+function Circle({ bgColor, borderColor, text = "default text" }: CircleProps) {
+```
