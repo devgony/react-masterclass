@@ -163,3 +163,59 @@ const Title = styled.h1`
   color: ${(props) => props.theme.textColor};
 `;
 ```
+
+# 3 TYPESCRIPT
+
+## 3.1 DefinitelyTyped
+
+```sh
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+mv src/App.js src/App.tsx
+mv src/index.js src/index.tsx
+npx tsc --init
+```
+
+```ts
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
+
+```ts
+// src/index.tsx
+import ReactDOM from "react-dom/client";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+```
+
+- looks like below types are included in styled-components now
+
+```sh
+npm i --save-dev @types/styled-components
+```
