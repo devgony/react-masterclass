@@ -254,3 +254,10 @@ interface CircleProps {
 
 function Circle({ bgColor, borderColor, text = "default text" }: CircleProps) {
 ```
+
+## 3.4 State
+
+```ts
+const [value, setValue] = useState<string | number>("");
+setValue(1);
+```
