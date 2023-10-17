@@ -261,3 +261,30 @@ function Circle({ bgColor, borderColor, text = "default text" }: CircleProps) {
 const [value, setValue] = useState<string | number>("");
 setValue(1);
 ```
+
+## 3.5 Forms
+
+```ts
+const [value, setValue] = useState("");
+const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const {
+    currentTarget: { value },
+  } = event;
+  setValue(value);
+};
+const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  console.log("value:", value);
+};
+    ..
+    <form onSubmit={onSubmit}>
+      <input
+        value={value}
+        onChange={onChange}
+        type="text"
+        placeholder="username"
+      />
+      <button>Log in</button>
+    </form>
+    ..
+```
