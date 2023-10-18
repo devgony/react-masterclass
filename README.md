@@ -288,3 +288,61 @@ const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     </form>
     ..
 ```
+
+## 3.6 Themes
+
+- extend module
+
+```ts
+// touch src/styled.d.ts
+import "styled-components";
+declare module "styled-components" {
+  export interface DefaultTheme {
+    textColor: string;
+    bgColor: string;
+    btnColor: string;
+  }
+}
+```
+
+- configure theme
+
+```ts
+// touch src/theme.ts
+import { DefaultTheme } from "styled-components";
+export const lightTheme: DefaultTheme = {
+  bgColor: "white",
+  textColor: "black",
+  btnColor: "tomato",
+};
+export const darkTheme: DefaultTheme = {
+  bgColor: "black",
+  textColor: "white",
+  btnColor: "teal",
+};
+```
+
+- provide theme
+
+```ts
+// src/index.tsx
+<ThemeProvider theme={darkTheme}>
+  <App />
+</ThemeProvider>
+```
+
+- use theme
+
+```ts
+const Container = styled.div`
+  background-color: ${(props) => props.theme.bgColor};
+`;
+const H1 = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+    ..
+    <Container>
+      <H1>protected</H1>
+    </Container>
+    ..
+```
