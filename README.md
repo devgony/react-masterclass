@@ -535,3 +535,15 @@ useEffect(() => {
   })();
 }, []);
 ```
+
+## 5.6 Data Types
+
+- type inference workaround: dev console => Store object as global variable
+
+```js
+console.log(
+  Object.entries(temp1)
+    .map((a) => `${a[0]}: ${typeof a[1]};`)
+    .join("\r\n")
+);
+```
