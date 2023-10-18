@@ -494,6 +494,7 @@ useEffect(() => {
 ## 5.4 Route States
 
 - send state by Link
+  - if access directly without send state => Loading
 
 ```ts
 // Coins.tsx
