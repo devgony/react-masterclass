@@ -346,3 +346,33 @@ const H1 = styled.h1`
     </Container>
     ..
 ```
+
+## 5.0 Setup
+
+```
+npm i react-router-dom@5.3.4
+npm i --save-dev @types/react-router
+npm i --save-dev @types/react-router-dom
+
+mkdir -p src/routes
+touch src/routes/Coin.tsx
+touch src/routes/Coins.tsx
+touch src/Router.tsx
+```
+
+```ts
+function Router() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/:coinId">
+          <Coin />
+        </Route>
+        <Route path="/">
+          <Coins />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+}
+```
