@@ -490,3 +490,30 @@ useEffect(() => {
   })();
 }, []);
 ```
+
+## 5.4 Route States
+
+- send state by Link
+
+```ts
+// Coins.tsx
+<Link
+  to={{
+    pathname: `/${coin.id}`,
+    state: { name: coin.name },
+  }}
+>
+```
+
+```ts
+// Coin.tsx
+interface RouteParams {
+  coinId: string;
+}
+interface RouteState {
+  name: string;
+}
+..
+  const { coinId } = useParams<RouteParams>();
+  const { state } = useLocation<RouteState>();
+```
