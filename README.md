@@ -475,3 +475,18 @@ body {
 ```ts
 <Link to={`/${coin.id}`}>{coin.name} &rarr;</Link>
 ```
+
+## 5.3 Home part Two
+
+- fetch API
+
+```ts
+useEffect(() => {
+  (async () => {
+    const response = await fetch("https://api.coinpaprika.com/v1/coins");
+    const json = await response.json();
+    setCoins(json.slice(0, 100));
+    setLoading(false);
+  })();
+}, []);
+```
