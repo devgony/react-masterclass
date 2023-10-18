@@ -547,3 +547,24 @@ console.log(
     .join("\r\n")
 );
 ```
+
+## 5.7 Nested Routes part One
+
+```
+touch src/routes/Price.tsx
+touch src/routes/Chart.tsx
+```
+
+- nested routes render components which fit with route
+
+```ts
+// Coin.tsx
+<Switch>
+  <Route path={`/${coinId}/price`}>
+    <Price />
+  </Route>
+  <Route path={`/${coinId}/chart`}>
+    <Chart />
+  </Route>
+</Switch>
+```
