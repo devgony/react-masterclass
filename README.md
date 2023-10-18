@@ -467,3 +467,11 @@ body {
 ```
 
 - color palette: https://flatuicolors.com/palette/gb
+
+## 5.2 Home part One
+
+- Link to
+
+```ts
+<Link to={`/${coin.id}`}>{coin.name} &rarr;</Link>
+```
