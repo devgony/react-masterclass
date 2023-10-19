@@ -592,3 +592,39 @@ const chartMatch = useRouteMatch("/:coinId/chart");
 ```ts
 <Route path={`/:coinId/price`}>
 ```
+
+## 5.9 React Query part One
+
+```sh
+npm i react-query
+```
+
+- wrap with QueryClientProvider
+
+```ts
+// src/index.tsx
+const queryClient = new QueryClient();
+..
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </QueryClientProvider>
+```
+
+- define fetcher
+
+```ts
+// touch src/api.ts
+export function fetchCoins() {
+  return fetch("https://api.coinpaprika.com/v1/coins").then((response) =>
+    response.json()
+  );
+}
+```
+
+- fetch data
+
+```ts
+const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
+```
