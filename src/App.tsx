@@ -1,4 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, {
+  StyleSheetManager,
+  createGlobalStyle,
+} from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -70,9 +73,11 @@ a {
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router />
-      <ReactQueryDevtools initialIsOpen={false} />
+      <StyleSheetManager shouldForwardProp={(prop) => prop !== "isActive"}>
+        <GlobalStyle />
+        <Router />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </StyleSheetManager>
     </>
   );
 }

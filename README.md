@@ -639,3 +639,16 @@ const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 <Router />
 <ReactQueryDevtools initialIsOpen={false} />
 ```
+
+## 5.12 Price Chart
+
+- solve unknown prop "isActive" warning
+
+```ts
+// src/App.tsx
+<>
+  <StyleSheetManager shouldForwardProp={(prop) => prop !== "isActive"}>
+    ..
+  </StyleSheetManager>
+</>
+```
