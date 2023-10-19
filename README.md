@@ -628,3 +628,14 @@ export function fetchCoins() {
 ```ts
 const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 ```
+
+## 5.10 React Query part Two
+
+- ReactQueryDevtools shows cached data
+
+```ts
+// src/App.tsx
+..
+<Router />
+<ReactQueryDevtools initialIsOpen={false} />
+```
