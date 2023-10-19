@@ -568,3 +568,27 @@ touch src/routes/Chart.tsx
   </Route>
 </Switch>
 ```
+
+## 5.8 Nested Routes part Two
+
+- check if it's that route with useRouteMatch
+
+```ts
+const priceMatch = useRouteMatch("/:coinId/price");
+const chartMatch = useRouteMatch("/:coinId/chart");
+..
+<Tabs>
+  <Tab isActive={chartMatch !== null}>
+    <Link to={`/${coinId}/chart`}>Chart</Link>
+  </Tab>
+  <Tab isActive={priceMatch !== null}>
+    <Link to={`/${coinId}/price`}>Price</Link>
+  </Tab>
+</Tabs>;
+```
+
+- /:coinId parse the first keyword
+
+```ts
+<Route path={`/:coinId/price`}>
+```
