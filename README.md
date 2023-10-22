@@ -697,3 +697,18 @@ npm install --save react-apexcharts apexcharts
   }}
 />
 ```
+
+## 5.14 Price Chart part Three
+
+```ts
+fill: {
+  type: "gradient",
+  gradient: { gradientToColors: ["#0be881"], stops: [0, 100] },
+},
+..
+tooltip: {
+  y: {
+    formatter: (value) => `$${value.toFixed(2)}`,
+  },
+},
+```
