@@ -712,3 +712,21 @@ tooltip: {
   },
 },
 ```
+
+## 5.15 Final Touches
+
+```sh
+npm i react-helmet @types/react-helmet
+```
+
+- refetchInterval
+
+```ts
+const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
+  ["tickers", coinId],
+  () => fetchCoinTickers(coinId),
+  {
+    refetchInterval: 5000,
+  }
+);
+```
