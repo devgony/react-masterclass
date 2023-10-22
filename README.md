@@ -652,3 +652,48 @@ const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   </StyleSheetManager>
 </>
 ```
+
+## 5.13 Price Chart part Two
+
+```sh
+npm install --save react-apexcharts apexcharts
+```
+
+```ts
+// src/routes/Chart.tsx
+<ApexChart
+  type="line"
+  series={[
+    {
+      name: "Price",
+      data: data?.map((price) => price.close),
+    },
+  ]}
+  options={{
+    theme: {
+      mode: "dark",
+    },
+    chart: {
+      height: 300,
+      width: 500,
+      toolbar: {
+        show: false,
+      },
+      background: "transparent",
+    },
+    grid: { show: false },
+    stroke: {
+      curve: "smooth",
+      width: 4,
+    },
+    yaxis: {
+      show: false,
+    },
+    xaxis: {
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+      labels: { show: false },
+    },
+  }}
+/>
+```
