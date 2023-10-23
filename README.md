@@ -797,3 +797,12 @@ const isDark = useRecoilValue(isDarkAtom);
 ```sh
 App -> (isDark) <- App.Router.Coin.Chart
 ```
+
+## 6.3 Introduction to Recoil part Two
+
+```ts
+const setDarkAtom = useSetRecoilState(isDarkAtom);
+const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
+..
+<button onClick={toggleDarkAtom}>Toggle Mode</button>
+```
