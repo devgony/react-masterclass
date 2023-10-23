@@ -742,7 +742,6 @@ const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
 ## 6.0 Dark Mode part One
 
 - should move Provider from `index.tsx` to `App.tsx` to use theme with state
-- nested props make redundant inheritances
 
 ```ts
 // src/App.tsx
@@ -750,4 +749,15 @@ const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
   <button onClick={toggleDark}>Toggle Mode</button>
   ..
 </ThemeProvider>
+```
+
+## 6.1 Dark Mode part Two
+
+- nested props make redundant inheritances
+- only few children needs state or modification
+
+```
+App (isDark, setIsDark)
+=> Router => Coins(setIsDark)
+=> Router => Coin => Chart(isDark)
 ```

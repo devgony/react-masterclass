@@ -79,10 +79,9 @@ function App() {
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <button onClick={toggleDark}>Toggle Mode</button>
         <StyleSheetManager shouldForwardProp={(prop) => prop !== "isActive"}>
           <GlobalStyle />
-          <Router />
+          <Router isDark={isDark} toggleDark={toggleDark} />
           <ReactQueryDevtools initialIsOpen={false} />
         </StyleSheetManager>
       </ThemeProvider>
