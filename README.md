@@ -761,3 +761,39 @@ App (isDark, setIsDark)
 => Router => Coins(setIsDark)
 => Router => Coin => Chart(isDark)
 ```
+
+## 6.2 Introduction to Recoil
+
+```sh
+npm install recoil
+```
+
+```ts
+// touch src/atoms.ts
+import { atom } from "recoil";
+
+export const isDarkAtom = atom({
+  key: "isDark",
+  default: true,
+});
+```
+
+```ts
+// src/index.tsx
+<RecoilRoot>
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+</RecoilRoot>
+```
+
+```ts
+// src/App.tsx
+const isDark = useRecoilValue(isDarkAtom);
+```
+
+- Any component can acces to the state
+
+```sh
+App -> (isDark) <- App.Router.Coin.Chart
+```
