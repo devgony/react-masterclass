@@ -738,3 +738,16 @@ const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
 1. make go back button
 2. render prices
 3. replace barChart to candlestickChart
+
+## 6.0 Dark Mode part One
+
+- should move Provider from `index.tsx` to `App.tsx` to use theme with state
+- nested props make redundant inheritances
+
+```ts
+// src/App.tsx
+<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+  <button onClick={toggleDark}>Toggle Mode</button>
+  ..
+</ThemeProvider>
+```
