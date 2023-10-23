@@ -730,3 +730,11 @@ const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
   }
 );
 ```
+
+## 5.16 Conclusions
+
+### Challenge
+
+1. make go back button
+2. render prices
+3. replace barChart to candlestickChart

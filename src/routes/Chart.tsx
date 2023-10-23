@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
 
-interface IHistorical {
+export interface IHistorical {
   time_open: string;
   time_close: string;
   open: number;
@@ -23,17 +23,22 @@ function Chart({ coinId }: ChartProps) {
       refetchInterval: 10000,
     }
   );
+
   return (
     <div>
       {isLoading ? (
         "Loading chart..."
       ) : (
         <ApexChart
-          type="line"
+          type="candlestick"
           series={[
             {
               name: "Price",
-              data: data?.map((price) => price.close) ?? [],
+              data:
+                data?.map((price) => ({
+                  x: new Date(price.time_close),
+                  y: [price.open, price.high, price.low, price.close],
+                })) ?? [],
             },
           ]}
           options={{

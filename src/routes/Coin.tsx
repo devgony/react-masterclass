@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   Route,
   Switch,
+  useHistory,
   useLocation,
   useParams,
   useRouteMatch,
@@ -81,6 +82,26 @@ const Tab = styled.span<{ isActive: boolean }>`
     padding: 7px 0px;
     display: block;
   }
+`;
+
+const Button = styled.button`
+  all: unset;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 interface RouteParams {
@@ -162,6 +183,7 @@ function Coin() {
     }
   );
   const loading = infoLoading || tickersLoading;
+  const history = useHistory();
 
   return (
     <Container>
@@ -170,11 +192,15 @@ function Coin() {
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </title>
       </Helmet>
-      <Header>
-        <Title>
-          -{state?.name ? state.name : loading ? "Loading..." : infoData?.name}
-        </Title>
-      </Header>
+      <Row>
+        <Button onClick={() => history.push("/")}>&larr;</Button>
+        <Header>
+          <Title>
+            {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+          </Title>
+        </Header>
+        <span></span>
+      </Row>
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
@@ -214,7 +240,7 @@ function Coin() {
           </Tabs>
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinId={coinId} />
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId} />
