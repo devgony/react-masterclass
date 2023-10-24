@@ -806,3 +806,7 @@ const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
 ..
 <button onClick={toggleDarkAtom}>Toggle Mode</button>
 ```
+
+## 6.5 To Do Setup
+
+- rearrange apps

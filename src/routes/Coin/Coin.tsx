@@ -12,7 +12,7 @@ import styled from "styled-components";
 import Price from "./Price";
 import Chart from "./Chart";
 import { Link } from "react-router-dom";
-import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import { fetchCoinInfo, fetchCoinTickers } from "../../api";
 import { useQuery } from "react-query";
 
 const Title = styled.h1`

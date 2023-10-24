@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { fetchCoins } from "../api";
+import { fetchCoins } from "../../api";
 import { Helmet } from "react-helmet";
 import { useSetRecoilState } from "recoil";
-import { isDarkAtom } from "../atoms";
+import { isDarkAtom } from "../../atoms";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -88,7 +88,7 @@ function Coins() {
             <Coin key={coin.id}>
               <Link
                 to={{
-                  pathname: `/${coin.id}`,
+                  pathname: `/coin/${coin.id}`,
                   state: { name: coin.name },
                 }}
               >

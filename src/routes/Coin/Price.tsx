@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { IHistorical } from "./Chart";
-import { fetchCoinHistory } from "../api";
+import { fetchCoinHistory } from "../../api";
 import styled from "styled-components";
 import { useMemo } from "react";
 
