@@ -810,3 +810,19 @@ const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
 ## 6.5 To Do Setup
 
 - rearrange apps
+
+## 6.6 Forms
+
+```sh
+npm i react-hook-form
+```
+
+```ts
+// src/ToDoList.tsx
+const { register, watch } = useForm();
+console.log(watch());
+..
+    <form>
+      <input {...register("email")} placeholder="Email" />
+      ..
+```
