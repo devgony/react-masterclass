@@ -826,3 +826,22 @@ console.log(watch());
       <input {...register("email")} placeholder="Email" />
       ..
 ```
+
+## 6.7 Form Validation
+
+- handleSubmit
+- form validation: required, minLength, custom message.. by `formState.errors`
+
+```ts
+// src/ToDoList.tsx
+<input
+  {...register("password1", {
+    required: "Password is required",
+    minLength: {
+      value: 5,
+      message: "Your password is too short.",
+    },
+  })}
+  placeholder="Password1"
+/>
+```
