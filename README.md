@@ -845,3 +845,10 @@ console.log(watch());
   placeholder="Password1"
 />
 ```
+
+## 4.8 Form Errors
+
+```ts
+// src/ToDoList.tsx
+<span>{errors?.password1?.message}</span>
+```
