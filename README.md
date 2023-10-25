@@ -852,3 +852,62 @@ console.log(watch());
 // src/ToDoList.tsx
 <span>{errors?.password1?.message}</span>
 ```
+
+## 6.9 Custom Validation
+
+### Custom error
+
+- set message and shouldFocus on error
+  - for existing field
+  - for extra field like `server offline`
+
+```ts
+const onValid = (data: IForm) => {
+  if (data.password !== data.password1) {
+    setError(
+      "password1",
+      { message: "Password are not the same" },
+      { shouldFocus: true }
+    );
+  }
+  setError("extraError", { message: "Server offline." });
+};
+```
+
+### Custom validator
+
+#### Return type
+
+- invalid: return false or error message
+- valid: return true
+
+#### How to use
+
+1. type field becomes `validate` by default
+
+```ts
+validate: (value) => bool | string;
+```
+
+2. set specific type
+
+```ts
+validate: {
+  validateType: (value) => bool | string;
+}
+```
+
+```tsx
+// src/ToDoList.tsx
+<input
+  {...register("firstName", {
+    required: "write here",
+    // validate: (value) => "error",
+    validate: {
+      noNico: (value) => (value.includes("nico") ? "no nicos allowed" : true),
+      noNick: (value) => (value.includes("nick") ? "no nick allowed" : true),
+    },
+  })}
+  placeholder="First Name"
+/>
+```
