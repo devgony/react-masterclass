@@ -915,3 +915,19 @@ validate: {
 ## 6.10 Recap
 
 - clear practices and start to write todo
+
+## 6.11 Add To Do
+
+```
+mkdir src/components
+mv src/routes/Coin src/components
+mv src/routes/Todo src/components
+```
+
+- useRecoilState = useRecoilValue + useSetRecoilState
+
+```ts
+// const toDos = useRecoilValue(toDoState);
+// const setToDos = useSetRecoilState(toDoState);
+const [toDos, setToDos] = useRecoilState(toDoState);
+```
