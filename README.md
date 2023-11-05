@@ -911,3 +911,7 @@ validate: {
   placeholder="First Name"
 />
 ```
+
+## 6.10 Recap
+
+- clear practices and start to write todo
