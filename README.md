@@ -937,3 +937,7 @@ const [toDos, setToDos] = useRecoilState(toDoState);
 - fix urls of coin: `/:coinId/chart => /coin/:coinId/chart`
 - split each apps into `/apps`
 - split from `ToDoList` to `CreateTodo` and `Todo`
+
+## 6.13 Categories
+
+- add callback to get target onClick
