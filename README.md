@@ -931,3 +931,9 @@ mv src/routes/Todo src/components
 // const setToDos = useSetRecoilState(toDoState);
 const [toDos, setToDos] = useRecoilState(toDoState);
 ```
+
+## 6.12 Refactoring
+
+- fix urls of coin: `/:coinId/chart => /coin/:coinId/chart`
+- split each apps into `/apps`
+- split from `ToDoList` to `CreateTodo` and `Todo`

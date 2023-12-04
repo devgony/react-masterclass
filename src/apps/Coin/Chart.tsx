@@ -26,6 +26,7 @@ function Chart({ coinId }: ChartProps) {
     }
   );
   const isDark = useRecoilValue(isDarkAtom);
+  console.log(isLoading, data);
   return (
     <div>
       {isLoading ? (

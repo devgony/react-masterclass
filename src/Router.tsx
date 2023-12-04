@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Coin from "./components/Coin/Coin";
-import Coins from "./components/Coin/Coins";
+import Coin from "./apps/Coin/Coin";
+import Coins from "./apps/Coin/Coins";
 import Navigator from "./routes/Navigator";
-import ToDoList from "./components/Todo/ToDoList";
+import ToDoList from "./apps/Todo/components/ToDoList";
 
 function Router() {
   return (
