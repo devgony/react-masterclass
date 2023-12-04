@@ -941,3 +941,12 @@ const [toDos, setToDos] = useRecoilState(toDoState);
 ## 6.13 Categories
 
 - add callback to get target onClick
+
+## 6.14 Immutability part One
+
+- find targetIndex by `findIndex`
+
+```ts
+// Todo.tsx
+const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
+```
