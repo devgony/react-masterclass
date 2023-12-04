@@ -950,3 +950,17 @@ const [toDos, setToDos] = useRecoilState(toDoState);
 // Todo.tsx
 const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
 ```
+
+## 6.15 Immutability part Two
+
+- create new array with `slice`
+
+```ts
+// Todo.tsx
+const newToDo = { text, id, category: name as any };
+return [
+  ...oldToDos.slice(0, targetIndex),
+  newToDo,
+  ...oldToDos.slice(targetIndex + 1),
+];
+```
