@@ -991,3 +991,22 @@ export const toDoSelector = selector({
 const [toDo, doing, done] = useRecoilValue(toDoSelector);
 ..
 ```
+
+## 6.17 Selectors part Two
+
+- can filter by another state
+
+```ts
+export const categoryState = atom({
+  key: "category",
+  default: "TO_DO",
+});
+
+export const toDoSelector = selector({
+  key: "toDoSelector",
+  get: ({ get }) => {
+    const toDos = get(toDoState);
+    const category = get(categoryState);
+    return toDos.filter((toDo) => toDo.category === category);
+  },
+```
