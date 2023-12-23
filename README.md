@@ -347,6 +347,8 @@ const H1 = styled.h1`
     ..
 ```
 
+# 5 CRYPTO TRACKER
+
 ## 5.0 Setup
 
 ```
@@ -739,6 +741,8 @@ const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
 2. render prices
 3. replace barChart to candlestickChart
 
+# 6 STATE MANAGEMENT
+
 ## 6.0 Dark Mode part One
 
 - should move Provider from `index.tsx` to `App.tsx` to use theme with state
@@ -963,4 +967,27 @@ return [
   newToDo,
   ...oldToDos.slice(targetIndex + 1),
 ];
+```
+
+## 6.16 Selectors part One
+
+- selector like Computed field
+
+```ts
+// src/apps/Todo/atoms.tsx
+export const toDoSelector = selector({
+  key: "toDoSelector",
+  get: ({ get }) => {
+    const toDos = get(toDoState);
+    return [
+      toDos.filter((toDo) => toDo.category === "TO_DO"),
+      toDos.filter((toDo) => toDo.category === "DOING"),
+      toDos.filter((toDo) => toDo.category === "DONE"),
+    ];
+  },
+});
+
+// src/apps/Todo/components/ToDoList.tsx
+const [toDo, doing, done] = useRecoilValue(toDoSelector);
+..
 ```
