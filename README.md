@@ -1027,3 +1027,17 @@ export const categoryState = atom<Categories>({
   default: Categories.TO_DO,
 });
 ```
+
+## 7.0 Get Selectors
+
+- computed field for hour from minutes
+
+```ts
+export const hourSelector = selector({
+  key: "hours",
+  get: ({ get }) => {
+    const minutes = get(minuteState);
+    return minutes / 60;
+  },
+});
+```

@@ -41,6 +41,9 @@ function Navigator() {
         <ListChild>
           <Link to="/todo-list">Todo</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/trello">Trello</Link>
+        </ListChild>
       </ul>
     </Center>
   );
