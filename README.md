@@ -1041,3 +1041,17 @@ export const hourSelector = selector({
   },
 });
 ```
+
+## 7.1 Set Selectors
+
+- setState with selector
+
+```ts
+export const hourSelector = selector<number>({
+  ..
+  set: ({ set }, newValue) => {
+    const minutes = Number(newValue) * 60;
+    set(minuteState, minutes);
+  },
+});
+```
