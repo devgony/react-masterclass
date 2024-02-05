@@ -1061,6 +1061,7 @@ export const hourSelector = selector<number>({
 ```sh
 npm i react-beautiful-dnd@^13.1.0 @types/react-beautiful-dnd@13.1.2
 mv src/apps/Trello/Trello.tsx src/apps/Trello/StudySelector.tsx
+touch src/apps/Trello/StudyDrag.tsx
 ```
 
 - should remove StrictMode at `src/index.tsx`
@@ -1097,4 +1098,32 @@ export default function StudyDrag() {
     </DragDropContext>
   );
 }
+```
+
+## 7.4 Styles and Placeholders
+
+- chore: impl styled components, and change dark theme
+- placeholder can keep the place even after dragging
+
+```ts
+<Droppable droppableId="one">
+  {(magic) => (
+    <Board ref={magic.innerRef} {...magic.droppableProps}>
+      {toDos.map((toDo, index) => (
+        <Draggable draggableId={toDo} index={index}>
+          {(magic) => (
+            <Card
+              ref={magic.innerRef}
+              {...magic.dragHandleProps}
+              {...magic.draggableProps}
+            >
+              {toDo}
+            </Card>
+          )}
+        </Draggable>
+      ))}
+      {magic.placeholder}
+    </Board>
+  )}
+</Droppable>
 ```
