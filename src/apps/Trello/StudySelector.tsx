@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { hourSelector, minuteState } from "./atoms";
 
-export default function Trello() {
+export default function StudySelector() {
   const [minutes, setMinutes] = useRecoilState(minuteState);
   const [hours, setHours] = useRecoilState(hourSelector);
   const onMinutesChange = (event: React.FormEvent<HTMLInputElement>) => {

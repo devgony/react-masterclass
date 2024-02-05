@@ -3,7 +3,7 @@ import Coin from "./apps/Coin/Coin";
 import Coins from "./apps/Coin/Coins";
 import Navigator from "./routes/Navigator";
 import ToDoList from "./apps/Todo/components/ToDoList";
-import Trello from "./apps/Trello/Trello";
+import StudyDrag from "./apps/Trello/StudyDrag";
 
 function Router() {
   return (
@@ -19,7 +19,7 @@ function Router() {
           <ToDoList />
         </Route>
         <Route path="/trello">
-          <Trello />
+          <StudyDrag />
         </Route>
         <Route path="/">
           <Navigator />
