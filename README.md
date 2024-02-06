@@ -1236,3 +1236,33 @@ const Area = styled.div<IAreaProps>`
       {...magic.droppableProps}
     >
 ```
+
+## 7.12 Final Styles
+
+```ts
+// src/apps/Trello/Components/DragabbleCard.tsx
+const Card = styled.div<{ isDragging: boolean }>`
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: ${(props) =>
+    props.isDragging ? "#e4f2ff" : props.theme.cardColor};
+  box-shadow: ${(props) =>
+    props.isDragging ? "0px 2px 5px rgba(0, 0, 0, 0.05)" : "none"};
+`;
+```
+
+```ts
+// src/apps/Trello/Components/Board.tsx
+const Area = styled.div<IAreaProps>`
+  background-color: ${(props) =>
+    props.isDraggingOver
+      ? "#dfe6e9"
+      : props.isDraggingFromThis
+      ? "#b2bec3"
+      : "transparent"};
+  flex-grow: 1;
+  transition: background-color 0.3s ease-in-out;
+  padding: 20px;
+`;
+```
