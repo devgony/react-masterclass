@@ -1155,3 +1155,12 @@ const onDragEnd = ({ draggableId, destination, source }: DropResult) => {
 <DragDropContext onDragEnd={onDragEnd}>
   <Draggable key={toDo} draggableId={toDo} index={index}>
 ```
+
+## 7.7 Performance
+
+- extract DragabbleCard
+- Optimize with `React.memo` => rerender only mutated
+
+```ts
+export default React.memo(DragabbleCard);
+```
