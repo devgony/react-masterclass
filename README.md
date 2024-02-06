@@ -1127,3 +1127,31 @@ export default function StudyDrag() {
   )}
 </Droppable>
 ```
+
+## 7.6 Reordering part Two
+
+- onDragEnd gived source and destination
+- Draggable `key` should be identical with `draggableId`
+
+```ts
+const onDragEnd = ({ draggableId, destination, source }: DropResult) => {
+  if (!destination) return;
+  setToDos((oldToDos) => {
+    const toDosCopy = [...oldToDos];
+    // 1) Delete item on source.index
+    console.log("Delete item on", source.index);
+    console.log(toDosCopy);
+    toDosCopy.splice(source.index, 1);
+    console.log("Deleted item");
+    console.log(toDosCopy);
+    // 2) Put back the item on the destination.index
+    console.log("Put back", draggableId, "on ", destination.index);
+    toDosCopy.splice(destination?.index, 0, draggableId);
+    console.log(toDosCopy);
+    return toDosCopy;
+  });
+};
+..
+<DragDropContext onDragEnd={onDragEnd}>
+  <Draggable key={toDo} draggableId={toDo} index={index}>
+```
