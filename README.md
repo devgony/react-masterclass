@@ -1266,3 +1266,19 @@ const Area = styled.div<IAreaProps>`
   padding: 20px;
 `;
 ```
+
+## 7.13 Refs
+
+- ref serves to use event on html tags like `focus`, `blur`
+
+```ts
+const inputRef = useRef<HTMLInputElement>(null);
+const onClick = () => {
+  inputRef.current?.focus();
+  setTimeout(() => {
+    inputRef.current?.blur();
+  }, 5000);
+};
+..
+<input ref={inputRef} placeholder="grab me" />
+```
