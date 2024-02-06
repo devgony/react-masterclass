@@ -18,12 +18,12 @@ export const categoryState = atom<Categories>({
 });
 
 export const toDoState = atom<IToDo[]>({
-  key: "toDo",
+  key: "toDoBasic", // rename to toDoBasic to avoid conflict with the "toDo"
   default: [],
 });
 
 export const toDoSelector = selector({
-  key: "toDoSelector",
+  key: "toDoBasicSelector",
   get: ({ get }) => {
     const toDos = get(toDoState);
     const category = get(categoryState);

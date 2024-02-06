@@ -3,24 +3,24 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { toDoState, IToDo, categoryState } from "../atoms";
 
 interface IForm {
-  toDo: string;
+  toDoBasic: string;
 }
 
 function CreateToDo() {
   const setToDos = useSetRecoilState<IToDo[]>(toDoState);
   const category = useRecoilValue(categoryState);
   const { register, handleSubmit, setValue } = useForm<IForm>();
-  const handleValid = ({ toDo }: IForm) => {
+  const handleValid = ({ toDoBasic }: IForm) => {
     setToDos((oldToDos) => [
-      { text: toDo, id: Date.now(), category },
+      { text: toDoBasic, id: Date.now(), category },
       ...oldToDos,
     ]);
-    setValue("toDo", "");
+    setValue("toDoBasic", "");
   };
   return (
     <form onSubmit={handleSubmit(handleValid)}>
       <input
-        {...register("toDo", {
+        {...register("toDoBasic", {
           required: "Please write a To Do",
         })}
         placeholder="Write a to do"

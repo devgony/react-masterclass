@@ -1158,9 +1158,37 @@ const onDragEnd = ({ draggableId, destination, source }: DropResult) => {
 
 ## 7.7 Performance
 
-- extract DragabbleCard
+- extract `Components/DragabbleCard.tsx`
 - Optimize with `React.memo` => rerender only mutated
 
 ```ts
 export default React.memo(DragabbleCard);
+```
+
+## 7.8 Multi Boards
+
+- extract `Components/Board.tsx`
+
+## 7.9 Same Board Movement
+
+- handle case when droppableID is identical
+
+```ts
+const onDragEnd = (info: DropResult) => {
+  console.log(info);
+  const { destination, draggableId, source } = info;
+  if (destination?.droppableId === source.droppableId) {
+    // same board movement.
+    setToDos((allBoards) => {
+      const boardCopy = [...allBoards[source.droppableId]];
+      boardCopy.splice(source.index, 1);
+      boardCopy.splice(destination?.index, 0, draggableId);
+
+      return {
+        ...allBoards,
+        [source.droppableId]: boardCopy,
+      };
+    });
+  }
+};
 ```
