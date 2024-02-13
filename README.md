@@ -1328,3 +1328,13 @@ const onValid = ({ toDo }: IForm) => {
   setValue("toDo", "");
 };
 ```
+
+## 7.16 Code Challenge
+
+- `mv src/apps/Trello/StudyDrag.tsx src/apps/Trello/Trello.tsx`
+- chore: update styled.form
+
+1. delete todo with drag
+2. persistant save
+3. create board
+4. DnD boards
