@@ -44,6 +44,9 @@ function Navigator() {
         <ListChild>
           <Link to="/trello">Trello</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animation">Animation</Link>
+        </ListChild>
       </ul>
     </Center>
   );

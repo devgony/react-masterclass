@@ -1338,3 +1338,15 @@ const onValid = ({ toDo }: IForm) => {
 2. persistant save
 3. create board
 4. DnD boards
+
+## 8.0 Introduction
+
+- style setup
+
+```diff
+# src/App.tsx
+body {
+  ..
+- background-color:${(props) => props.theme.bgColor};
++ background:linear-gradient(135deg,#e09,#d0e);
+```

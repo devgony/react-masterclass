@@ -4,6 +4,7 @@ import Coins from "./apps/Coin/Coins";
 import Navigator from "./routes/Navigator";
 import ToDoList from "./apps/Todo/components/ToDoList";
 import Trello from "./apps/Trello/Trello";
+import Animation from "./apps/Animation/Animation";
 
 function Router() {
   return (
@@ -20,6 +21,9 @@ function Router() {
         </Route>
         <Route path="/trello">
           <Trello />
+        </Route>
+        <Route path="/animation">
+          <Animation />
         </Route>
         <Route path="/">
           <Navigator />
