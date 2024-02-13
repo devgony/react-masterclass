@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -20,6 +21,8 @@ export function Animation() {
   return (
     <Wrapper>
       <Box />
+      <div></div>
+      <motion.div></motion.div>
     </Wrapper>
   );
 }

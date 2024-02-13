@@ -1350,3 +1350,17 @@ body {
 - background-color:${(props) => props.theme.bgColor};
 + background:linear-gradient(135deg,#e09,#d0e);
 ```
+
+## 8.1 Installation
+
+```sh
+npm i framer-motion
+```
+
+- To animate, it should be `motion.{htmlTag}`
+
+```ts
+import { motion } from "framer-motion";
+..
+<motion.div></motion.div>
+```
