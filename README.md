@@ -1282,3 +1282,49 @@ const onClick = () => {
 ..
 <input ref={inputRef} placeholder="grab me" />
 ```
+
+## 7.14 Task Objects
+
+- string[] to ITodo[]
+
+```ts
+// src/atoms.tsx
+export interface ITodo {
+  id: number;
+  text: string;
+}
+
+interface IToDoState {
+  [key: string]: ITodo[];
+}
+```
+
+- substitute useRef with `useForm`
+
+## 7.15 Creating Tasks
+
+- splice with ITodo
+
+```ts
+const taskObj = boardCopy[source.index];
+boardCopy.splice(source.index, 1);
+boardCopy.splice(destination?.index, 0, taskObj);
+```
+
+- handleSubmit
+
+```ts
+const onValid = ({ toDo }: IForm) => {
+  const newToDo = {
+    id: Date.now(),
+    text: toDo,
+  };
+  setToDos((allBoards) => {
+    return {
+      ...allBoards,
+      [boardId]: [newToDo, ...allBoards[boardId]],
+    };
+  });
+  setValue("toDo", "");
+};
+```
