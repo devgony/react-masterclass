@@ -1394,3 +1394,17 @@ export function Animation() {
   );
 }
 ```
+
+## 8.3 Variants part One
+
+- initial == start
+- animate == end
+
+```ts
+const myVars = {
+  start: { scale: 0 },
+  end: { scale: 1, rotateZ: 360, transition: { type: "spring", delay: 0.5 } },
+};
+..
+<Box variants={myVars} initial="start" animate="end" />;
+```
