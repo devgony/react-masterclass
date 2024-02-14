@@ -1484,3 +1484,24 @@ return (
     </BiggerBox>
     ..
 ```
+
+## 8.7 MotionValues part One
+
+![motion-value](/images/motion-value.gif)
+
+- motion value does not trigger react render cycle: it's not react state
+
+```ts
+// src/apps/Animation/animations/MotionValue.tsx
+const x = useMotionValue(0);
+useEffect(() => {
+  x.onChange((latest) => {
+    console.log(latest);
+  });
+}, [x]);
+return (
+  <Wrapper>
+    <Box style={{ x }} drag="x" dragSnapToOrigin />
+  </Wrapper>
+);
+```

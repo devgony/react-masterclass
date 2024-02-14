@@ -44,6 +44,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/gesture">Gesture</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/motion-value">MotionValue</Link>
+        </ListChild>
       </ul>
     </Center>
   );
