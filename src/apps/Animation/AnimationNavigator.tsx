@@ -53,6 +53,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/presence">Presence</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/slider">Slider</Link>
+        </ListChild>
       </ul>
     </Center>
   );

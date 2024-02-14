@@ -1523,7 +1523,7 @@ const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
 
 ![motion-value-scroll](/images/motion-value-scroll.gif)
 
-- rotateZ roll the object while scrolling x
+- rotateZ roll the component while scrolling x
 - useViewportScroll().scroll: gives absolute value, scrollYprogress gives interpolated value from 0 to 1
 
 ```ts
@@ -1611,5 +1611,64 @@ const boxVariants = {
       exit="leaving"
     />
   ) : null}
+</AnimatePresence>
+```
+
+## 8.13 Slider part Two
+
+![slider](/images/slider.gif)
+
+- slideX from +500 to -500
+- custom sends data to variant which allows to use callback
+  - should set on both AnimatePresence and child component
+- `AnimatePresence.mode="wait"` waits till prev component completely exits
+
+```ts
+const box = {
+  entry: (back: boolean) => ({
+    x: 500 * (back ? -1 : 1),
+    opacity: 0,
+    scale: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: (back: boolean) => ({
+    x: 500 * (back ? 1 : -1),
+    opacity: 0,
+    scale: 0,
+    transition: { duration: 0.3 },
+  }),
+};
+..
+const [visible, setVisible] = useState(1);
+const [back, setBack] = useState(false);
+const nextPlease = () =>
+  setVisible((prev) => {
+    setBack(false);
+    return prev === 10 ? 10 : prev + 1;
+  });
+const prevPlease = () =>
+  setVisible((prev) => {
+    setBack(true);
+    return prev === 1 ? 1 : prev - 1;
+  });
+..
+<AnimatePresence custom={back} mode="wait">
+  <Box
+    custom={back}
+    variants={box}
+    initial="entry"
+    animate="center"
+    exit="exit"
+    key={visible}
+  >
+    {visible}
+  </Box>
 </AnimatePresence>
 ```

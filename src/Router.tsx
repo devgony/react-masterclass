@@ -12,6 +12,7 @@ import Gesture from "./apps/Animation/animations/Gesture";
 import MotionValue from "./apps/Animation/animations/MotionValue";
 import SVG from "./apps/Animation/animations/SVG";
 import Presence from "./apps/Animation/animations/Presence";
+import Slider from "./apps/Animation/animations/Slider";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/animations/motion-value" component={MotionValue} />
         <Route path="/animations/svg" component={SVG} />
         <Route path="/animations/presence" component={Presence} />
+        <Route path="/animations/slider" component={Slider} />
         <Route path="/" component={Navigator} />
       </Switch>
     </BrowserRouter>
