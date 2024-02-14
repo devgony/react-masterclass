@@ -1505,3 +1505,15 @@ return (
   </Wrapper>
 );
 ```
+
+## 8.8 MotionValues part Two
+
+![motion-value-scale](/images/motion-value-scale.gif)
+
+- useTransform animates scale
+
+```ts
+const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
+..
+<Box style={{ x, scale }} drag="x" dragSnapToOrigin />
+```
