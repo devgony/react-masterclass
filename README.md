@@ -1459,3 +1459,28 @@ const boxVariants = {
   whileTap="click"
 />
 ```
+
+## 8.6 Gestures part Two
+
+![gesture-constraint](/images/gesture-constraint.gif)
+
+- give dragConstraints with ref
+- dragElastic allows over than constraints
+
+```ts
+const biggerBoxRef = useRef<HTMLDivElement>(null);
+return (
+  <Wrapper>
+    <BiggerBox ref={biggerBoxRef}>
+      <Box
+        drag
+        dragSnapToOrigin
+        dragElastic={0.1}
+        dragConstraints={biggerBoxRef}
+        variants={boxVariants}
+        whileHover="hover"
+        whileTap="click"
+      />
+    </BiggerBox>
+    ..
+```
