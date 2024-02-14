@@ -22,7 +22,7 @@ const myVars = {
   end: { scale: 1, rotateZ: 360, transition: { type: "spring", delay: 0.5 } },
 };
 
-export function Animation() {
+export function Spinner() {
   return (
     <Wrapper>
       <Box variants={myVars} initial="start" animate="end" />

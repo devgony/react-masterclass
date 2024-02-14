@@ -1374,6 +1374,7 @@ import { motion } from "framer-motion";
 ![alt text](images/basic-spring.gif)
 
 ```ts
+// src/apps/Animation/animations/Spinner.tsx
 const Box = styled(motion.div)`
   width: 200px;
   height: 200px;
@@ -1382,7 +1383,7 @@ const Box = styled(motion.div)`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
-export function Animation() {
+export function Spinner() {
   return (
     <Wrapper>
       <Box
@@ -1407,4 +1408,33 @@ const myVars = {
 };
 ..
 <Box variants={myVars} initial="start" animate="end" />;
+```
+
+## 8.4 Variants part Two
+
+![alt text](/images/iphone-camera.gif)
+
+- split animations with routes
+- delayChildren: start all children with delay
+- staggerChildren: give interval to each children to work consequently
+
+```ts
+// src/apps/Animation/animations/IphoneCamera.tsx
+const boxVariants = {
+  start: {
+    opacity: 0,
+    scale: 0.5,
+  },
+  end: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+      bounce: 0.5,
+      delayChildren: 0.5,
+      staggerChildren: 0.2,
+    },
+  },
+};
 ```

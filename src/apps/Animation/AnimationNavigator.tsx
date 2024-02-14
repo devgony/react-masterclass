@@ -31,25 +31,19 @@ const ListChild = styled.li`
   }
 `;
 
-function Navigator() {
+function AnimationNavigator() {
   return (
     <Center>
       <ul>
         <ListChild>
-          <Link to="/coins">Coin</Link>
+          <Link to="/animations/spinner">Spinner</Link>{" "}
         </ListChild>
         <ListChild>
-          <Link to="/todo-list">Todo</Link>
-        </ListChild>
-        <ListChild>
-          <Link to="/trello">Trello</Link>
-        </ListChild>
-        <ListChild>
-          <Link to="/animations">Animation</Link>
+          <Link to="/animations/iphone-camera">IphoneCamera</Link>
         </ListChild>
       </ul>
     </Center>
   );
 }
 
-export default Navigator;
+export default AnimationNavigator;
