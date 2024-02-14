@@ -41,6 +41,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/iphone-camera">IphoneCamera</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/gesture">Gesture</Link>
+        </ListChild>
       </ul>
     </Center>
   );

@@ -8,6 +8,7 @@ import Animation from "./apps/Animation/AnimationNavigator";
 import AnimationNavigator from "./apps/Animation/AnimationNavigator";
 import IphoneCamera from "./apps/Animation/animations/IphoneCamera";
 import { Spinner } from "./apps/Animation/animations/Spinner";
+import Gesture from "./apps/Animation/animations/Gesture";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/animations" exact component={AnimationNavigator} />
         <Route path="/animations/spinner" component={Spinner} />
         <Route path="/animations/iphone-camera" component={IphoneCamera} />
+        <Route path="/animations/gesture" component={Gesture} />
         <Route path="/" component={Navigator} />
       </Switch>
     </BrowserRouter>
