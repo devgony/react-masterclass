@@ -1517,3 +1517,29 @@ const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
 ..
 <Box style={{ x, scale }} drag="x" dragSnapToOrigin />
 ```
+
+## 8.9 MotionValues part Three
+
+![motion-value-scroll](/images/motion-value-scroll.gif)
+
+- rotateZ roll the object while scrolling x
+- useViewportScroll().scroll: gives absolute value, scrollYprogress gives interpolated value from 0 to 1
+
+```ts
+const x = useMotionValue(0);
+const rotateZ = useTransform(x, [-800, 800], [-360, 360]);
+const gradient = useTransform(
+  x,
+  [-800, 800],
+  [
+    "linear-gradient(135deg, rgb(0, 210, 238), rgb(0, 83, 238))",
+    "linear-gradient(135deg, rgb(0, 238, 155), rgb(238, 178, 0))",
+  ]
+);
+const { scrollYProgress } = useViewportScroll();
+const scale = useTransform(scrollYProgress, [0, 1], [1, 5]);
+..
+  <Wrapper style={{ background: gradient }}>
+    <Box style={{ x, rotateZ, scale }} drag="x" dragSnapToOrigin />
+  </Wrapper>
+```
