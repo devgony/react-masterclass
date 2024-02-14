@@ -1513,6 +1513,7 @@ return (
 - useTransform animates scale
 
 ```ts
+// src/apps/Animation/animations/MotionValue.tsx
 const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
 ..
 <Box style={{ x, scale }} drag="x" dragSnapToOrigin />
@@ -1526,6 +1527,7 @@ const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
 - useViewportScroll().scroll: gives absolute value, scrollYprogress gives interpolated value from 0 to 1
 
 ```ts
+// src/apps/Animation/animations/MotionValue.tsx
 const x = useMotionValue(0);
 const rotateZ = useTransform(x, [-800, 800], [-360, 360]);
 const gradient = useTransform(
@@ -1542,4 +1544,36 @@ const scale = useTransform(scrollYProgress, [0, 1], [1, 5]);
   <Wrapper style={{ background: gradient }}>
     <Box style={{ x, rotateZ, scale }} drag="x" dragSnapToOrigin />
   </Wrapper>
+```
+
+## 8.10 SVG Animation
+
+![svg](/images/svg.gif)
+
+- pathLength draws svg from 0 to 1
+
+```ts
+// src/apps/Animation/animations/SVG.tsx
+const svg = {
+  start: { pathLength: 0, fill: "rgba(255, 255, 255, 0)" },
+  end: {
+    fill: "rgba(255, 255, 255, 1)",
+    pathLength: 1,
+  },
+};
+..
+<Svg
+  focusable="false"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 448 512"
+>
+  <motion.path
+    variants={svg}
+    initial="start"
+    animate="end"
+    transition={{
+      default: { duration: 5 },
+      fill: { duration: 1, delay: 3 },
+    }}
+    ..
 ```

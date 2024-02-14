@@ -47,6 +47,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/motion-value">MotionValue</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/svg">SVG</Link>
+        </ListChild>
       </ul>
     </Center>
   );
