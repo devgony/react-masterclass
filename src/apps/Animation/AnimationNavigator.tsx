@@ -50,6 +50,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/svg">SVG</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/presence">Presence</Link>
+        </ListChild>
       </ul>
     </Center>
   );

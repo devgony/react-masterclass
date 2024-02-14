@@ -1577,3 +1577,39 @@ const svg = {
     }}
     ..
 ```
+
+## 8.11 AnimatePresence
+
+![presence](/images/presence.gif)
+
+- AnimatePresence allows components to animate out when they're removed from the React tree.
+
+```ts
+const boxVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotateZ: 360,
+  },
+  leaving: {
+    opacity: 0,
+    scale: 0,
+    y: 50,
+  },
+};
+..
+<AnimatePresence>
+  {showing ? (
+    <Box
+      variants={boxVariants}
+      initial="initial"
+      animate="visible"
+      exit="leaving"
+    />
+  ) : null}
+</AnimatePresence>
+```
