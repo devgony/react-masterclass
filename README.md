@@ -1028,6 +1028,8 @@ export const categoryState = atom<Categories>({
 });
 ```
 
+# 7 TRELLO CLONE
+
 ## 7.0 Get Selectors
 
 - computed field for hour from minutes
@@ -1338,6 +1340,8 @@ const onValid = ({ toDo }: IForm) => {
 2. persistant save
 3. create board
 4. DnD boards
+
+# 8 ANIMATIONS
 
 ## 8.0 Introduction
 
@@ -1712,3 +1716,9 @@ const prevPlease = () =>
   ) : null}
 </AnimatePresence>
 ```
+
+# 9 NOMFLIX CLONE
+
+## 9.0 Introduction
+
+- create Nomflix app

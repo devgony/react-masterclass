@@ -5,7 +5,7 @@ import styled, {
 } from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { darkTheme } from "./theme";
+import { theme } from "./theme";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
@@ -78,7 +78,7 @@ function App() {
   const isDark = useRecoilValue(isDarkAtom);
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <StyleSheetManager shouldForwardProp={(prop) => prop !== "isActive"}>
           <GlobalStyle />
           <Router />

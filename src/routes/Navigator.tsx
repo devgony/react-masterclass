@@ -47,6 +47,9 @@ function Navigator() {
         <ListChild>
           <Link to="/animations">Animation</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/nomflix">Nomflix</Link>
+        </ListChild>
       </ul>
     </Center>
   );
