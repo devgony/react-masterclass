@@ -1746,3 +1746,32 @@ const logoVariants = {
   },
 };
 ```
+
+## 9.3 Header part Three
+
+- animate selected tab with layoutId
+
+```ts
+<Link to="/"> Home {homeMatch?.isExact && <Circle layoutId="circle" />} </Link>
+<Link to="/tv"> Tv Shows {tvMatch && <Circle layoutId="circle" />} </Link>
+```
+
+- animate SearchBar to -180 on click
+
+```ts
+<Search>
+  <motion.svg
+    onClick={toggleSearch}
+    animate={{ x: searchOpen ? -180 : 0 }}
+    transition={{ type: "linear" }}
+    fill="currentColor"
+  >
+    ..
+  </motion.svg>
+  <Input
+    transition={{ type: "linear" }}
+    animate={{ scaleX: searchOpen ? 1 : 0 }}
+    placeholder="Search for movie or tv show..."
+  />
+</Search>
+```
