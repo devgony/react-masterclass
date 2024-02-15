@@ -1722,3 +1722,8 @@ const prevPlease = () =>
 ## 9.0 Introduction
 
 - create Nomflix app
+
+## 9.1 Header part One
+
+- create Home, Search, Tv
+- create Header
