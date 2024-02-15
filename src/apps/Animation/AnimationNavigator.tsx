@@ -59,6 +59,9 @@ function AnimationNavigator() {
         <ListChild>
           <Link to="/animations/layout">Layout</Link>
         </ListChild>
+        <ListChild>
+          <Link to="/animations/layout-modal">LayoutModal</Link>
+        </ListChild>
       </ul>
     </Center>
   );

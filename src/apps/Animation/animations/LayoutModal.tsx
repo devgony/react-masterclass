@@ -43,7 +43,7 @@ const overlay = {
   exit: { backgroundColor: "rgba(0, 0, 0, 0)" },
 };
 
-function Final() {
+function LayoutModal() {
   const [id, setId] = useState<null | string>(null);
   return (
     <Wrapper>
@@ -69,4 +69,4 @@ function Final() {
   );
 }
 
-export default Final;
+export default LayoutModal;

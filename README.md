@@ -1685,3 +1685,30 @@ const prevPlease = () =>
 <Circle layoutId="circle" style={{ borderRadius: 50 }} />
 <Circle layoutId="circle" style={{ borderRadius: 0, scale: 2 }} />
 ```
+
+## 8.16 Final Project part Two
+
+![layout-modal](/images/layout-modal.gif)
+
+- connect with layoutId from grid child to centered Box on Overlay
+
+```ts
+<Grid>
+  {["1", "2", "3", "4"].map((n) => (
+    <Box onClick={() => setId(n)} key={n} layoutId={n} />
+  ))}
+</Grid>
+<AnimatePresence>
+  {id ? (
+    <Overlay
+      variants={overlay}
+      onClick={() => setId(null)}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <Box layoutId={id} style={{ width: 400, height: 200 }} />
+    </Overlay>
+  ) : null}
+</AnimatePresence>
+```
