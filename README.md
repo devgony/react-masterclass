@@ -1726,4 +1726,23 @@ const prevPlease = () =>
 ## 9.1 Header part One
 
 - create Home, Search, Tv
-- create Header
+- create Header with netflix svg logo
+
+## 9.2 Header part Two
+
+- with `transition.repeat: infinity`
+
+```ts
+// src/apps/Nomflix/Components/Header.tsx
+const logoVariants = {
+  normal: {
+    fillOpacity: 1,
+  },
+  active: {
+    fillOpacity: [0, 1, 0],
+    transition: {
+      repeat: Infinity,
+    },
+  },
+};
+```
