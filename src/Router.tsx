@@ -13,6 +13,7 @@ import MotionValue from "./apps/Animation/animations/MotionValue";
 import SVG from "./apps/Animation/animations/SVG";
 import Presence from "./apps/Animation/animations/Presence";
 import Slider from "./apps/Animation/animations/Slider";
+import Layout from "./apps/Animation/animations/Layout";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
         <Route path="/animations/svg" component={SVG} />
         <Route path="/animations/presence" component={Presence} />
         <Route path="/animations/slider" component={Slider} />
+        <Route path="/animations/layout" component={Layout} />
         <Route path="/" component={Navigator} />
       </Switch>
     </BrowserRouter>

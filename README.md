@@ -1672,3 +1672,16 @@ const prevPlease = () =>
   </Box>
 </AnimatePresence>
 ```
+
+## 8.14 You Need to Watch This
+
+### layout
+
+![layout](/images/layout.gif)
+
+- animate from a component to another by just assigning `layoutId`
+
+```ts
+<Circle layoutId="circle" style={{ borderRadius: 50 }} />
+<Circle layoutId="circle" style={{ borderRadius: 0, scale: 2 }} />
+```
