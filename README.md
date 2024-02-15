@@ -1775,3 +1775,31 @@ const logoVariants = {
   />
 </Search>
 ```
+
+## 9.4 Header part Four
+
+- show NavBar when scrollY is over than 80
+
+```ts
+const navVariants = {
+  top: {
+    backgroundColor: "rgba(0, 0, 0, 0)",
+  },
+  scroll: {
+    backgroundColor: "rgba(0, 0, 0, 1)",
+  },
+};
+const inputAnimation = useAnimation();
+const navAnimation = useAnimation();
+useEffect(() => {
+  scrollY.onChange(() => {
+    if (scrollY.get() > 80) {
+      navAnimation.start("scroll");
+    } else {
+      navAnimation.start("top");
+    }
+  });
+}, [scrollY, navAnimation]);
+..
+<Nav variants={navVariants} animate={navAnimation} initial={"top"}>
+```
