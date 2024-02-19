@@ -1889,3 +1889,37 @@ const rowVariants = {
           <Slider>
             <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
 ```
+
+## 9.9 Box Animations part One
+
+- handle most left and most right to center
+
+```css
+/* src/apps/Nomflix/Routes/Home.tsx */
+&:first-child {
+  transform-origin: center left;
+}
+&:last-child {
+  transform-origin: center right;
+}
+```
+
+- scale up on hover
+
+```ts
+// src/apps/Nomflix/Routes/Home.tsx
+const boxVariants = {
+  normal: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.3,
+    y: -50,
+    transition: {
+      delay: 0.5,
+      duaration: 0.3,
+      type: "tween",
+    },
+  },
+};
+```
