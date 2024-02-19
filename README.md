@@ -1923,3 +1923,34 @@ const boxVariants = {
   },
 };
 ```
+
+## 9.10 Box Animations part Two
+
+- animate opcaity from 0 to 1 on hover
+
+```ts
+// src/apps/Nomflix/Routes/Home.tsx
+const Info = styled(motion.div)`
+  padding: 10px;
+  background-color: ${(props) => props.theme.black.lighter};
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4 {
+    text-align: center;
+    font-size: 18px;
+  }
+`;
+
+const infoVariants = {
+  hover: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duaration: 0.1,
+      type: "tween",
+    },
+  },
+};
+```
