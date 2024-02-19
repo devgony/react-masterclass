@@ -1982,3 +1982,18 @@ bigMovieMatch ? (
   />
 ) : null;
 ```
+
+## 9.12 Movie Modal part Two
+
+- modal should appear wherever scroll is
+
+```ts
+const { scrollY } = useViewportScroll();
+..
+<BigMovie
+  style={{ top: scrollY.get() + 100 }}
+  layoutId={bigMovieMatch.params.movieId}
+>
+  hello
+</BigMovie>
+```
