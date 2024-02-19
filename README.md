@@ -2027,3 +2027,15 @@ const clickedMovie =
   )}
 </BigMovie>
 ```
+
+## 9.14 Search Redirect
+
+- js `URLSearchParams` to parse query
+
+```ts
+// src/apps/Nomflix/Routes/Search.tsx
+const location = useLocation();
+const keyword = new URLSearchParams(location.search).get("keyword");
+```
+
+- fix router from `/` to `/nomflix`
