@@ -1997,3 +1997,33 @@ const { scrollY } = useViewportScroll();
   hello
 </BigMovie>
 ```
+
+## 9.13 Movie Modal part Three
+
+- find clickedMovie
+
+```ts
+const clickedMovie =
+  bigMovieMatch?.params.movieId &&
+  data?.results.find((movie) => movie.id === +bigMovieMatch.params.movieId);
+..
+<BigMovie
+  style={{ top: scrollY.get() + 100 }}
+  layoutId={bigMovieMatch.params.movieId}
+>
+  {clickedMovie && (
+    <>
+      <BigCover
+        style={{
+          backgroundImage: `linear-gradient(to top, black, transparent), url(${makeImagePath(
+            clickedMovie.backdrop_path,
+            "w500"
+          )})`,
+        }}
+      />
+      <BigTitle>{clickedMovie.title}</BigTitle>
+      <BigOverview>{clickedMovie.overview}</BigOverview>
+    </>
+  )}
+</BigMovie>
+```
