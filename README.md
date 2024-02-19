@@ -1828,3 +1828,64 @@ const Banner = styled.div<{ bgPhoto: string }>`
   background-size: cover;
 `;
 ```
+
+## 9.7 Slider part One
+
+- slider from +10 to -10 on click
+
+```ts
+const rowVariants = {
+  hidden: {
+    x: window.outerWidth + 10,
+  },
+  visible: {
+    x: 0,
+  },
+  exit: {
+    x: -window.outerWidth - 10,
+  },
+};
+..
+<Slider>
+  <AnimatePresence>
+    <Row
+      variants={rowVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      transition={{ type: "tween", duration: 1 }}
+      key={index}
+    >
+      {[1, 2, 3, 4, 5, 6].map((i) => (
+        <Box key={i}>{i}</Box>
+      ))}
+    </Row>
+  </AnimatePresence>
+</Slider>
+```
+
+## 9.8 Slider part Two
+
+- onExitComplete: only when completed, we can increase index again => fix empty hole bug
+
+```ts
+  const [leaving, setLeaving] = useState(false);
+  const incraseIndex = () => {
+    if (data) {
+      if (leaving) return;
+      toggleLeaving();
+      const totalMovies = data.results.length - 1;
+      const maxIndex = Math.floor(totalMovies / offset) - 1;
+      setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }
+  };
+  const toggleLeaving = () => setLeaving((prev) => !prev);
+  return (
+    ..
+          <Banner
+            onClick={incraseIndex}
+            ..
+          </Banner>
+          <Slider>
+            <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
+```
