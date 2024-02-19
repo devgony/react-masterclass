@@ -2039,3 +2039,10 @@ const keyword = new URLSearchParams(location.search).get("keyword");
 ```
 
 - fix router from `/` to `/nomflix`
+
+## 9.15 Conclusions + Challenge
+
+- more movies on Home
+- impl TV show page
+- impl search results by search API URL
+- improve movie detail with rich infomation
