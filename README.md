@@ -1954,3 +1954,31 @@ const infoVariants = {
   },
 };
 ```
+
+## 9.11 Movie Modal
+
+- open modal with layoutId
+
+```ts
+// src/apps/Nomflix/Routes/Home.tsx
+const bigMovieMatch = useRouteMatch<{ movieId: string }>("/movies/:movieId");
+..
+ <Box
+  layoutId={movie.id + ""}
+..
+bigMovieMatch ? (
+  <motion.div
+    layoutId={bigMovieMatch.params.movieId}
+    style={{
+      position: "absolute",
+      width: "40vw",
+      height: "80vh",
+      backgroundColor: "red",
+      top: 50,
+      left: 0,
+      right: 0,
+      margin: "0 auto",
+    }}
+  />
+) : null;
+```
